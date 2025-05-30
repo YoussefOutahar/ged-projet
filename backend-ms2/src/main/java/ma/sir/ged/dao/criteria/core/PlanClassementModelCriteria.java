@@ -1,0 +1,25 @@
+package ma.sir.ged.dao.criteria.core;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import ma.sir.ged.zynerator.criteria.BaseCriteria;
+
+import java.util.List;
+
+@Getter
+@Setter
+public class PlanClassementModelCriteria extends BaseCriteria {
+
+    private String code;
+    private String codeLike;
+    private String libelle;
+    private String libelleLike;
+    private String description;
+    private String descriptionLike;
+    private List<PlanClassementModelIndexCriteria> planClassementModelIndexCriteria;
+
+
+    public PlanClassementModelCriteria(){}
+}

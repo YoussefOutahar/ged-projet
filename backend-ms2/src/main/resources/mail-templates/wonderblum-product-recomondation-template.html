@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+
+<head>
+    <!--Help character display properly.-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!--Set the initial scale of the email.-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Force Outlook clients to render with a better MS engine.-->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <!--Help prevent blue links and autolinking-->
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
+    <!--prevent Apple from reformatting and zooming messages.-->
+    <meta name="x-apple-disable-message-reformatting">
+
+    <!--target dark mode-->
+    <meta name="color-scheme" content="light dark">
+    <meta name="supported-color-schemes" content="light dark only">
+
+    <!-- Allow for better image rendering on Windows hi-DPI displays. -->
+    <!--[if mso]>
+    <noscript>
+        <xml>
+            <o:OfficeDocumentSettings>
+                <o:AllowPNG/>
+                <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+    </noscript>
+    <![endif]-->
+
+    <!--to support dark mode meta tags-->
+    <style type="text/css">
+        :root {
+            color-scheme: light dark;
+            supported-color-schemes: light dark;
+        }
+    </style>
+
+    <!--webfont code goes here-->
+    <!--[if (gte mso 9)|(IE)]><!-->
+    <!--webfont <link /> goes here-->
+    <style>
+        /*Web font over ride goes here
+         h1, h2, h3, h4, h5, p, a, img, span, ul, ol, li { font-family: 'webfont name', Arial, Helvetica, sans-serif !important; } */
+    </style>
+    <!--<![endif]-->
+
+    <style type="text/css">
+        * { box-sizing: border-box; }
+        .body-fix {
+            height: 100% !important;
+            margin: 0 auto !important;
+            padding: 0 !important;
+            width: 100% !important;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-font-smoothing: antialiased;
+            word-spacing: normal;
+        }
+
+        div[style*="margin:16px 0"] {
+            margin: 0 !important;
+        }
+
+        table,
+        td {
+            border-collapse: collapse !important;
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+
+        img {
+            border: 0;
+            line-height: 100%;
+            outline: none;
+            text-decoration: none;
+            display: block;
+        }
+
+        p,
+        h1,
+        h2,
+        h3 {
+            padding: 0;
+            margin: 0;
+            font-family:'Trebuchet MS', Arial, sans-serif;
+        }
+        p { font-size: 18px; line-height: 28px;  }
+
+        a[x-apple-data-detectors] {
+            color: inherit !important;
+            text-decoration: none !important;
+            font-size: inherit !important;
+            font-family: inherit !important;
+            font-weight: inherit !important;
+            line-height: inherit !important;
+        }
+
+        u+#body a {
+            color: inherit;
+            text-decoration: none;
+            font-size: inherit;
+            font-family: inherit;
+            font-weight: inherit;
+            line-height: inherit;
+        }
+
+        #MessageViewBody a {
+            color: inherit;
+            text-decoration: none;
+            font-size: inherit;
+            font-family: inherit;
+            font-weight: inherit;
+            line-height: inherit;
+        }
+
+        a:hover, .link:hover {
+            text-decoration: none !important;
+        }
+
+        /*image hover effects for linked images*/
+        .fadeimg {
+            transition: 0.3s !important;
+            opacity: 1 !important;
+        }
+
+        .fadeimg:hover {
+            transition: 0.3s !important;
+            opacity: 0.5 !important;
+        }
+
+        /* start CTA HOVER EFFECTS */
+        .cta { transition: 0.3s !important; }
+        .cta span{ transition: 0.3s !important; }
+        .cta:hover { transition: 0.5s !important; background-color: #004265 !important; transform: scale(1.05);}
+        .cta:hover span { transition: 0.3s !important; }
+        .cta-border:hover { border-bottom: 3px solid transparent !important; }
+        /* end CTA HOVER EFFECTS */
+
+        /*hides mobile content on desktop*/
+        .mobile {
+            display: none;
+        }
+
+
+    </style>
+
+    <!--mobile styles-->
+    <style>
+        @media screen and (max-width:600px) {
+            /*sets widths for mobile devices*/
+            .wMobile { width: 95% !important; }
+            .wInner {  width: 90% !important; }
+            .wFull { width: 100% !important; }
+            .imgFull { width: 100% !important; height: auto !important; }
+
+            /*changes visibility for content on mobile*/
+            .desktop { width: 0 !important; display: none !important; }
+            .mobile { display: block !important; }
+
+            /*updates padding for mobile*/
+            .lPad-0 { padding-left: 0 !important; }
+            .tPad-0 { padding-top: 0 !important; }
+            .tPad-20 { padding-top: 20px !important; }
+            .bPad-20 { padding-bottom: 20px !important; }
+
+            /*changes text alignment on mobile*/
+            .lTxt { text-align: left !important; }
+        }
+    </style>
+
+    <!--dark mode styles-->
+    <!--these are just example classes that can be used.-->
+    <style>
+        @media (prefers-color-scheme: dark) {
+
+            /* Shows Dark Mode-Only Content, Like Images */
+            .dark-img {
+                display: block !important;
+                width: auto !important;
+                overflow: visible !important;
+                float: none !important;
+                max-height: inherit !important;
+                max-width: inherit !important;
+                line-height: auto !important;
+                margin-top: 0px !important;
+                visibility: inherit !important;
+            }
+
+            /* Hides Light Mode-Only Content, Like Images */
+            .light-img {
+                display: none;
+                display: none !important;
+            }
+
+            /* Custom Dark Mode Background Color */
+            .darkmode {
+                background-color: #0E0E0E !important;
+            }
+            .darkmode2 {
+                background-color: #093A52 !important;
+            }
+            .darkmode3 {
+                background-color: #262524 !important;
+            }
+
+            /* Custom Dark Mode Font Colors */
+            h1, h3, p, span, a, li {
+                color: #fdfdfd !important;
+            }
+            h2, h2 a { color: #028383 !important; }
+
+
+            /* Custom Dark Mode Text Link Color */
+            .link { color: #028383 !important; }
+            .footer a.link{ color: #fdfdfd !important; }
+        }
+
+        /* Copy dark mode styles for android support */
+        /* Shows Dark Mode-Only Content, Like Images */
+        [data-ogsc] .dark-img {
+            display: block !important;
+            width: auto !important;
+            overflow: visible !important;
+            float: none !important;
+            max-height: inherit !important;
+            max-width: inherit !important;
+            line-height: auto !important;
+            margin-top: 0px !important;
+            visibility: inherit !important;
+        }
+
+        /* Hides Light Mode-Only Content, Like Images */
+        [data-ogsc] .light-img {
+            display: none;
+            display: none !important;
+        }
+
+        /* Custom Dark Mode Background Color */
+        [data-ogsc] .darkmode {
+            background-color: #100E11 !important;
+        }
+        [data-ogsc] .darkmode2 {
+            background-color: #000000 !important;
+        }
+        [data-ogsc] .darkmode3 {
+            background-color: #1b181d !important;
+        }
+
+        /* Custom Dark Mode Font Colors */
+        [data-ogsc] h1, [data-ogsc] h3, [data-ogsc] p, [data-ogsc] span, [data-ogsc] a, [data-ogsc] li {
+            color: #fdfdfd !important;
+        }
+        [data-ogsc] h2, [data-ogsc] h2 a { color: #028383 !important; }
+
+        /* Custom Dark Mode Text Link Color */
+        [data-ogsc] .link { color: #028383 !important; }
+
+        [data-ogsc] .footer a.link { color: #fdfdfd !important; }
+    </style>
+
+    <!--correct superscripts in Outlook-->
+    <!--[if (gte mso 9)|(IE)]>
+    <style>
+        sup{font-size:100% !important;}
+    </style>
+    <![endif]-->
+    <title>Customer Loyalty: Birthday</title>
+</head>
+
+<body id="body" class="darkmode body body-fix" bgcolor="#ffffff" style="background-color:#ffffff;">
+<div role="article" aria-roledescription="email" aria-label="Email from Wonderblum" xml:lang="en" lang="en">
+    <!--hidden preheader with pre-header spacer hack-->
+    <div class="litmus-builder-preview-text" style="display:none;">
+        &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+    </div>
+    <!--start of email-->
+    <table class="darkmode3" bgcolor="#eeeeee" cellpadding="0" cellspacing="0" border="0" role="presentation" style="width:100%;">
+
+
+        <!--main content area-->
+        <tr>
+            <td align="center" valign="top" style="padding-top: 20px;">
+                <table class="wMobile darkmode" cellpadding="0" cellspacing="0" border="0" role="presentation" style="width:600px;background-color: #ffffff;">
+                    <tr>
+                        <td align="center" valign="top" style="padding:20px 0;">
+                            <!--light mode logo image-->
+                            <a href="https://www.example.com/***utm***"><img class="light-img" src="logo-light.png" width="168" height="78" alt="wonderblum" style="color: #4a4a4a; font-family: 'Trebuchet MS', Arial, sans-serif; text-align:center; font-weight:bold; font-size:24px; line-height:28x; text-decoration: none; padding: 0;">
+
+                                <!--dark mode logo image-->
+                                <!--[if !mso]><! -->
+                                <div class="dark-img" style="display:none; overflow:hidden; width:0px; max-height:0px; max-width:0px; line-height:0px; visibility:hidden;" align="center">
+                                    <img src="logo-dark.png" width="168" height="78" alt="wonderblum" style="color: #4a4a4a; font-family: 'Trebuchet MS', Arial, sans-serif; text-align:center; font-weight:bold; font-size:24px; line-height:28px; text-decoration: none; padding: 0;" border="0" />
+                                </div>
+                                <!--<![endif]-->
+                            </a>
+                        </td>
+                    </tr>
+                    <!--hero image-->
+                    <tr>
+                        <td align="center" valign="top">
+                            <a href="https://www.example.com/***utm***" target="_blank"><img src="plant_on_stool.png" class="fadeimg" width="600" height="406" alt="A plant in a white pot on a table" style="width: 100%; max-width: 600px; height: auto;" /></a>
+                        </td>
+                    </tr>
+
+                    <!--text area-->
+                    <tr>
+                        <td class="darkmode2" align="center" valign="top" style="padding:50px 0; background-color: #d7f1ff;">
+
+                            <table class="wInner" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:500px;">
+                                <tr>
+                                    <td align="left" valign="top">
+                                        <!--headline-->
+                                        <h1 style="font-size: 50px; line-height: 60px; color: #0a080b; font-weight: normal;">You have good taste</h1>
+
+                                        <!--message-->
+                                        <p style="margin: 30px 0; color: #0a080b;">Our {{product title}}’s are bestsellers, so grab them while they’re still in stock.</p>
+
+                                        <!--CTA-->
+                                        <a href="https://example.com/***utm***" class="cta" style="background-color: #028383; font-size: 18px; font-family: 'Trebuchet MS', Arial, sans-serif; font-weight:bold; text-decoration: none; padding: 14px 20px; color: #ffffff; display:inline-block; mso-padding-alt:0;"><!--[if mso]><i style="letter-spacing: 25px;mso-font-width:-100%;mso-text-raise:30pt">&nbsp;</i><![endif]--><span style="mso-text-raise:15pt;">Keep shopping</span><!--[if mso]><i style="letter-spacing: 25px;mso-font-width:-100%">&nbsp;</i><![endif]--></a>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="top">
+                            <table class="wInner" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:500px;">
+                                <tr>
+                                    <td align="left" valign="top" style="padding: 60px 0 0;">
+                                        <h2>Recommended</h2>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center" valign="top" style="font-size:0; padding: 0;">
+                                        <!--500px Side by Side Two Column: PADDING IS ON EACH TABLE CELL SO THEY STACK CORRECTLY-->
+                                        <!--[if (gte mso 9)|(IE)]>
+                                        <table cellpadding="0" cellspacing="0" border="0" role="presentation" style="width: 100%;">
+                                            <tr>
+                                                <td valign="top" style="width: 230px; padding-top: 30px;">
+                                        <![endif]-->
+                                        <div style="display:inline-block;vertical-align:top; padding-top: 30px;">
+                                            <table class="wFull" cellpadding="0" cellspacing="0" border="0" role="presentation" style="width: 230px;">
+                                                <tr>
+                                                    <td align="center" valign="top">
+                                                        <img src="plants_in_white_pots.png" alt="Three plants in white pots" width="230" height="230">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left" valign="top" style="padding-top: 15px;">
+                                                        <p style="text-align: left;"><strong>Product title</strong></p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left" valign="top" style="padding-top: 5px;">
+                                                        <table border="0" cellpadding="0" cellspacing="0" role="presentation">
+                                                            <tr>
+                                                                <td align="left" valign="middle">
+                                                                    <img src="stars.png" width="104" height="18">
+                                                                </td>
+                                                                <td align="left" valign="middle" style="padding-left: 15px;">
+                                                                    <p style="color: #48555C; font-size: 16px;">
+                                                                        (463)
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align=" left" valign="top" style="padding-top: 20px;">
+                                                        <!--CTA-->
+                                                        <a href="https://example.com/***utm***" class="cta" style="background-color: #028383; font-size: 18px; font-family: 'Trebuchet MS', Arial, sans-serif; font-weight:bold; text-decoration: none; padding: 14px 20px; color: #ffffff; display:inline-block; mso-padding-alt:0;"><!--[if mso]><i style="letter-spacing: 25px;mso-font-width:-100%;mso-text-raise:30pt">&nbsp;</i><![endif]--><span style="mso-text-raise:15pt;">Shop</span><!--[if mso]><i style="letter-spacing: 25px;mso-font-width:-100%">&nbsp;</i><![endif]--></a>
+                                                    </td>
+                                                </tr>
+
+                                            </table>
+                                        </div>
+                                        <!--[if (gte mso 9)|(IE)]>
+                                        </td>
+                                        <td valign="top" style="width:40px;">
+                                        </td>
+                                        <td valign="top" style="width:230px; padding-top: 30px;">
+                                        <![endif]-->
+                                        <div class="lPad-0" style="display:inline-block;vertical-align:top; padding-left: 40px; padding-top: 30px;">
+                                            <table class="wFull" cellpadding="0" cellspacing="0" border="0" role="presentation" style="width: 230px;">
+                                                <tr>
+                                                    <td align="center" valign="top">
+                                                        <img src="plant_on_table.png" alt="A plant in a white pot on a book" width="230" height="230">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left" valign="top" style="padding-top: 15px;">
+                                                        <p style="text-align: left;"><strong>Product title</strong></p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left" valign="top" style="padding-top: 5px;">
+                                                        <table border="0" cellpadding="0" cellspacing="0" role="presentation">
+                                                            <tr>
+                                                                <td align="left" valign="middle">
+                                                                    <img src="stars.png" width="104" height="18">
+                                                                </td>
+                                                                <td align="left" valign="middle" style="padding-left: 15px;">
+                                                                    <p style="color: #48555C; font-size: 16px;">
+                                                                        (463)
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align=" left" valign="top" style="padding-top: 20px;">
+                                                        <!--CTA-->
+                                                        <a href="https://example.com/***utm***" class="cta" style="background-color: #028383; font-size: 18px; font-family: 'Trebuchet MS', Arial, sans-serif; font-weight:bold; text-decoration: none; padding: 14px 20px; color: #ffffff; display:inline-block; mso-padding-alt:0;"><!--[if mso]><i style="letter-spacing: 25px;mso-font-width:-100%;mso-text-raise:30pt">&nbsp;</i><![endif]--><span style="mso-text-raise:15pt;">Shop</span><!--[if mso]><i style="letter-spacing: 25px;mso-font-width:-100%">&nbsp;</i><![endif]--></a>
+                                                    </td>
+                                                </tr>
+
+                                            </table>
+                                        </div>
+                                        <!--[if (gte mso 9)|(IE)]>
+                                        </td>
+                                        </tr>
+                                        </table>
+                                        <![endif]-->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center" valign="top" style="font-size:0; padding: 0;">
+                                        <!--500px Side by Side Two Column: PADDING IS ON EACH TABLE CELL SO THEY STACK CORRECTLY-->
+                                        <!--[if (gte mso 9)|(IE)]>
+                                        <table cellpadding="0" cellspacing="0" border="0" role="presentation" style="width: 100%;">
+                                            <tr>
+                                                <td valign="top" style="width: 230px; padding-top: 30px;">
+                                        <![endif]-->
+                                        <div style="display:inline-block;vertical-align:top; padding-top: 30px;">
+                                            <table class="wFull" cellpadding="0" cellspacing="0" border="0" role="presentation" style="width: 230px;">
+                                                <tr>
+                                                    <td align="center" valign="top">
+                                                        <img src="plant_babies.png" alt="Several plant seedlings" width="230" height="230">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left" valign="top" style="padding-top: 15px;">
+                                                        <p style="text-align: left;"><strong>Product title</strong></p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left" valign="top" style="padding-top: 5px;">
+                                                        <table border="0" cellpadding="0" cellspacing="0" role="presentation">
+                                                            <tr>
+                                                                <td align="left" valign="middle">
+                                                                    <img src="stars.png" width="104" height="18">
+                                                                </td>
+                                                                <td align="left" valign="middle" style="padding-left: 15px;">
+                                                                    <p style="color: #48555C; font-size: 16px;">
+                                                                        (463)
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align=" left" valign="top" style="padding-top: 20px;">
+                                                        <!--CTA-->
+                                                        <a href="https://example.com/***utm***" class="cta" style="background-color: #028383; font-size: 18px; font-family: 'Trebuchet MS', Arial, sans-serif; font-weight:bold; text-decoration: none; padding: 14px 20px; color: #ffffff; display:inline-block; mso-padding-alt:0;"><!--[if mso]><i style="letter-spacing: 25px;mso-font-width:-100%;mso-text-raise:30pt">&nbsp;</i><![endif]--><span style="mso-text-raise:15pt;">Shop</span><!--[if mso]><i style="letter-spacing: 25px;mso-font-width:-100%">&nbsp;</i><![endif]--></a>
+                                                    </td>
+                                                </tr>
+
+                                            </table>
+                                        </div>
+                                        <!--[if (gte mso 9)|(IE)]>
+                                        </td>
+                                        <td valign="top" style="width:40px;">
+                                        </td>
+                                        <td valign="top" style="width:230px; padding-top: 30px;">
+                                        <![endif]-->
+                                        <div class="lPad-0" style="display:inline-block;vertical-align:top; padding-left: 40px; padding-top: 30px;">
+                                            <table class="wFull" cellpadding="0" cellspacing="0" border="0" role="presentation" style="width: 230px;">
+                                                <tr>
+                                                    <td align="center" valign="top">
+                                                        <img src="plant_spiky.png" alt="A cactus in a pot" width="230" height="230">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left" valign="top" style="padding-top: 15px;">
+                                                        <p style="text-align: left;"><strong>Product title</strong></p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left" valign="top" style="padding-top: 5px;">
+                                                        <table border="0" cellpadding="0" cellspacing="0" role="presentation">
+                                                            <tr>
+                                                                <td align="left" valign="middle">
+                                                                    <img src="stars.png" width="104" height="18">
+                                                                </td>
+                                                                <td align="left" valign="middle" style="padding-left: 15px;">
+                                                                    <p style="color: #48555C; font-size: 16px;">
+                                                                        (463)
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align=" left" valign="top" style="padding-top: 20px;">
+                                                        <!--CTA-->
+                                                        <a href="https://example.com/***utm***" class="cta" style="background-color: #028383; font-size: 18px; font-family: 'Trebuchet MS', Arial, sans-serif; font-weight:bold; text-decoration: none; padding: 14px 20px; color: #ffffff; display:inline-block; mso-padding-alt:0;"><!--[if mso]><i style="letter-spacing: 25px;mso-font-width:-100%;mso-text-raise:30pt">&nbsp;</i><![endif]--><span style="mso-text-raise:15pt;">Shop</span><!--[if mso]><i style="letter-spacing: 25px;mso-font-width:-100%">&nbsp;</i><![endif]--></a>
+                                                    </td>
+                                                </tr>
+
+                                            </table>
+                                        </div>
+                                        <!--[if (gte mso 9)|(IE)]>
+                                        </td>
+                                        </tr>
+                                        </table>
+                                        <![endif]-->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right" valign="top" style="padding: 30px 0 0;">
+                                        <p><a href="https://www.example.com" style="color: #028383;">See all indoor plants</a></p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align=" left" valign="top" style="padding: 50px 0 0;">
+                                        <h2>Featured Product</h2>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left" valign="top" style="padding: 30px 0;">
+                                        <table class="darkmode2" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width: 100%; background-color: #d7f1ff;">
+                                            <tr>
+                                                <td align="center" valign="middle" style="font-size: 0;">
+                                                    <!--[if (gte mso 9)|(IE)]>
+                                                    <table cellpadding="0" cellspacing="0" border="0" role="presentation" style="width: 100%;">
+                                                        <tr>
+                                                            <td valign="middle" style="width: 230px;">
+                                                    <![endif]-->
+                                                    <div class="wFull" style="display:inline-block;vertical-align:middle;">
+                                                        <table class="wFull" cellpadding="0" cellspacing="0" border="0" role="presentation" style="width: 230px;">
+                                                            <tr>
+                                                                <td align="center" valign="top">
+                                                                    <!--desktop image-->
+                                                                    <img class="desktop" src="plant_with_pink_background.png" alt="A plant in a pot in front of a pink background" width="230" height="230">
+
+                                                                    <!--mobile image-->
+                                                                    <!--[if !mso]><! -->
+                                                                    <img class="mobile" src="plant_with_pink_background_mobile.png" width="335" height="230" alt="A plant in a pot in front of a pink background" style="text-decoration: none; padding: 0; max-width: 335px; display: none; width: 100%; height: auto;" border="0" />
+                                                                    <!--<![endif]-->
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                    <!--[if (gte mso 9)|(IE)]>
+                                                    </td><td style="width: 30px;"></td>
+                                                    <td valign="middle" style="width:240px;">
+                                                    <![endif]-->
+                                                    <div class="wFull" style="display:inline-block;vertical-align:middle; padding-left: 30px;">
+                                                        <table class="wFull" cellpadding="0" cellspacing="0" border="0" role="presentation" style="width:240px;">
+                                                            <tr>
+                                                                <td class="tPad-20 bPad-20" align="left" valign="top">
+                                                                    <p style="text-align: left; margin-bottom: 30px;"><strong>Product Title</strong> <br>Product description or a customer quote. Why is it being featured?</p> <a href="https://example.com/***utm***" class="cta" style="background-color: #028383; font-size: 18px; font-family: 'Trebuchet MS', Arial, sans-serif; font-weight:bold; text-decoration: none; padding: 14px 20px; color: #ffffff; display:inline-block; mso-padding-alt:0;"><!--[if mso]><i style="letter-spacing: 25px;mso-font-width:-100%;mso-text-raise:30pt">&nbsp;</i><![endif]--><span style="mso-text-raise:15pt;">Drive to web</span><!--[if mso]><i style="letter-spacing: 25px;mso-font-width:-100%">&nbsp;</i><![endif]--></a>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                    <!--[if (gte mso 9)|(IE)]>
+                                                    </td>
+                                                    </tr>
+                                                    </table>
+                                                    <![endif]-->
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <!--Sign Off-->
+                                <tr>
+                                    <td align="center" valign="top" style="padding: 50px 0;">
+                                        <p class="lTxt" style="color:#0a080b; margin:0 0 50px;">
+                                            A little sign-off and reminder of why subscribing was the right choice so they can feel good about engaging further.
+                                        </p>
+
+                                        <!--CTA-->
+                                        <a href="https://example.com/***utm***" class="cta" style="background-color: #028383; font-size: 18px; font-family: 'Trebuchet MS', Arial, sans-serif; font-weight:bold; text-decoration: none; padding: 14px 20px; color: #ffffff; display:inline-block; mso-padding-alt:0;"><!--[if mso]><i style="letter-spacing: 25px;mso-font-width:-100%;mso-text-raise:30pt">&nbsp;</i><![endif]--><span style="mso-text-raise:15pt;">Drive to web</span><!--[if mso]><i style="letter-spacing: 25px;mso-font-width:-100%">&nbsp;</i><![endif]--></a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+
+        <!--footer-->
+        <tr>
+            <td class="footer" align="center" valign="top" style="padding:50px 0;">
+                <p style="font-family: 'Trebuchet MS', Arial, sans-serif;font-size:14px;line-height:24px;mso-line-height-rule:exactly;color:#0a080b;margin-bottom:20px;">Any address information, legal, terms etc to be added here<br><br>
+                    <a href="https://example.com/***utm***" class="link" target="_blank" style="color: #0a080b; text-decoration: underline;">Email Preferences</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://example.com/***utm***" class="link" target="_blank" style="color: #0a080b; text-decoration: underline;">Unsubscribe</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://example.com/***utm***" class="link" target="_blank" style="color: #0a080b; text-decoration: underline;">View Online</a>
+                </p>
+
+            </td>
+        </tr>
+    </table>
+</div>
+
+<!--analytics-->
+
+</body>
+
+</html>

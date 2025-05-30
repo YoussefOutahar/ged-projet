@@ -1,0 +1,70 @@
+import useViewHook from "app/component/zyhook/useViewhook";
+import { TFunction } from "i18next";
+import { Dialog } from 'primereact/dialog';
+import { InputText } from 'primereact/inputtext';
+import { InputTextarea } from 'primereact/inputtextarea';
+import { TabPanel, TabView } from 'primereact/tabview';
+import React from 'react';
+
+import { DocumentCategorieModelDto } from 'app/controller/model/DocumentCategorieModel.model';
+
+type DocumentCategorieModelViewAgentType = {
+    visible: boolean,
+    onClose: () => void,
+    selectedItem: DocumentCategorieModelDto,
+    t: TFunction
+}
+
+const View: React.FC<DocumentCategorieModelViewAgentType> = ({ visible, onClose, selectedItem, t }) => {
+
+    const {
+        onTabChange,
+        hideDialog,
+        itemDialogFooter,
+        formateDate,
+        parse,
+        parseToIsoFormat,
+        adaptDate,
+        activeIndex
+    } = useViewHook<DocumentCategorieModelDto>({ selectedItem, onClose, t })
+
+
+    return (
+        <Dialog visible={visible}  closeOnEscape style={{ width: '70vw' }} header={t("documentCategorieModel.tabPan")} modal className="p-fluid" footer={itemDialogFooter} onHide={hideDialog} >
+            <TabView activeIndex={activeIndex} onTabChange={onTabChange}>
+                <TabPanel header={t("documentCategorieModel.tabPan")}>
+                    <div className="formgrid grid">
+
+                        <div className="field col-6">
+                            <label htmlFor="code">{t("documentCategorieModel.code")} <b className="font-italic"> ({t("document.uniqueFields")})</b> </label>
+                            <InputText id="code" value={selectedItem?.code} disabled />
+                        </div>
+
+                        <div className="field col-6">
+                            <label htmlFor="libelle">{t("documentCategorieModel.libelle")} <b className="font-italic"> ({t("document.uniqueFields")})</b> </label>
+                            <InputText id="libelle" value={selectedItem?.libelle} disabled />
+                        </div>
+
+                        {/* <div className="field col-6">
+                    <label htmlFor="referenceGed">{t("documentCategorieModel.referenceGed")}</label>
+                    <InputNumber id="referenceGed" value={selectedItem.referenceGed} disabled/>
+                </div> */}
+
+                        <div className="field col-6">
+                            <label htmlFor="description">{t("documentCategorieModel.description")}</label>
+                            <span className="p-float-label">
+                                <InputTextarea id="description" value={selectedItem?.description} disabled rows={5} cols={30} />
+                            </span>
+                        </div>
+
+                        <div className="field col-6">
+                            <label htmlFor="documentCategorie">{t("documentCategorieModel.documentCategorie")}</label>
+                            <InputText id="documentCategorieDropdown" value={selectedItem?.documentCategorie?.libelle} disabled />
+                        </div>
+                    </div>
+                </TabPanel>
+            </TabView>
+        </Dialog>
+    );
+};
+export default View;

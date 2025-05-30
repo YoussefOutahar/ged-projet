@@ -1,0 +1,46 @@
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.footer {
+    width: 88%;
+    margin-bottom: 2rem;
+    margin-right: 1rem;
+    align-self: flex-end;
+}
+
+.spacer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-content > :last-child {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.collapsed-card {
+    width: 100%;
+    margin: 1rem;
+    max-height: 12rem; 
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+}
+
+.expanded-card {
+    width: 100%;
+    margin: 1rem;
+    padding-top: 0.1rem;
+    max-height: 1000px;
+    transition: max-height 0.5s ease-in-out;
+}

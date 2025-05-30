@@ -1,0 +1,51 @@
+.authLayoutRoot{
+  background-image: url("/bag.jpg");
+  //background-image: url("https://static.vecteezy.com/system/resources/previews/021/965/858/non_2x/abstract-background-with-blue-gradient-color-free-vector.jpg");
+  background-position-x: center;
+  background-size: cover;
+  padding: 2.5rem;
+
+  @media screen and (max-width: 900px) {
+    margin: 0 auto;
+    background-size: cover;
+    padding-inline: 25px;
+    width: 100%;
+  }
+}
+.authLayoutContainer {
+  display: flex;
+  height: 85vh;
+  width: 70%;
+  border-radius: 3rem;
+  background-color: rgba(255, 255, 255, 0.711);
+  //background-color: #e0ecfb;  
+  margin-left: 250px;
+  
+}
+
+.authLayoutLeft { 
+  width: 50%;
+  background-image: url("/Images/login-left.png");
+  background-color: #e0ecfb9c;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 70%; 
+  border-radius: 3rem;
+  position: sticky;
+
+  @media screen and (max-width: 900px) {
+    display: none;
+    width: 0;
+  }
+}
+
+
+.authLayoutRight {
+  width: 50%;
+  overflow: none;
+  @media screen and (max-width: 900px) {
+   margin: 0 auto;
+   padding-inline: 25px;
+   width: 100%;
+  }
+}

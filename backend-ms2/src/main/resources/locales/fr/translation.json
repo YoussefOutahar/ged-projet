@@ -1,0 +1,438 @@
+{
+    "from-to": "Elements from {first} to {last} (total {totalRecords})",
+    "new" : "Nouveau",
+    "search": "Chercher",
+    "export": "Exporter",
+    "validate": "Validater",
+    "search": "Chercher...",
+    "delete": "Supprimer",
+    "cancel": "Annuler",
+    "save": "Sauvgarder",
+    "next": "Suivant",
+    "yes": "Oui",
+    "no": "Non",
+    "actions": "Actions",
+    "confirm": "Confirmer",
+    "creation": "Creation",
+    "list": "Liste",
+
+
+    "roleUtilisateur":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "description": "Description",
+        "roleUtilisateur": "Role utilisateur",
+        "tabPan": "Role utilisateur",
+        "header": "Liste des role utilisateurs",
+        "deleteRoleUtilisateurConfirmationMessage": "Voulez vous vraiment supprimer role utilisateur",
+        "deleteRoleUtilisateursConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "documentType":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "description": "Description",
+        "documentType": "Document type",
+        "tabPan": "Document type",
+        "header": "Liste des document types",
+        "deleteDocumentTypeConfirmationMessage": "Voulez vous vraiment supprimer document type",
+        "deleteDocumentTypesConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "accessShare":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "description": "Description",
+        "accessShare": "Access share",
+        "tabPan": "Access share",
+        "header": "Liste des access shares",
+        "deleteAccessShareConfirmationMessage": "Voulez vous vraiment supprimer access share",
+        "deleteAccessSharesConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "document":{
+        "reference": "Reference",
+        "referenceGed": "Reference ged",
+        "uploadDate": "Upload date",
+        "uploadDateMin": "Upload date Min",
+        "uploadDateMax": "Upload date Max",
+        "annee": "Annee",
+        "anneeMin": "Annee Min",
+        "anneeMax": "Annee Max",
+        "semstre": "Semstre",
+        "semstreMin": "Semstre Min",
+        "semstreMax": "Semstre Max",
+        "mois": "Mois",
+        "moisMin": "Mois Min",
+        "moisMax": "Mois Max",
+        "jour": "Jour",
+        "jourMin": "Jour Min",
+        "jourMax": "Jour Max",
+        "ocr": "Ocr",
+        "content": "Content",
+        "size": "Size",
+        "sizeMin": "Size Min",
+        "sizeMax": "Size Max",
+        "documentType": "Document type",
+        "documentTypePlaceHolder": "Select a Document type",
+        "documentTypePlaceHolderFilter": "Search by Document type",
+        "documentState": "Document state",
+        "documentStatePlaceHolder": "Select a Document state",
+        "documentStatePlaceHolderFilter": "Search by Document state",
+        "documentCategorie": "Document categorie",
+        "documentCategoriePlaceHolder": "Select a Document categorie",
+        "documentCategoriePlaceHolderFilter": "Search by Document categorie",
+        "documentIndexElements": "Document index elements",
+        "description": "Description",
+        "utilisateur": "Utilisateur",
+        "utilisateurPlaceHolder": "Select a Utilisateur",
+        "utilisateurPlaceHolderFilter": "Search by Utilisateur",
+        "archive": "Archive",
+        "versionne": "Versionne",
+        "entiteAdministrative": "Entite administrative",
+        "entiteAdministrativePlaceHolder": "Select a Entite administrative",
+        "entiteAdministrativePlaceHolderFilter": "Search by Entite administrative",
+        "documentCategorieModel": "Document categorie model",
+        "documentCategorieModelPlaceHolder": "Select a Document categorie model",
+        "documentCategorieModelPlaceHolderFilter": "Search by Document categorie model",
+        "documentPartageGroupes": "Document partage groupes",
+        "documentPartageUtilisateurs": "Document partage utilisateurs",
+        "documentTags": "Document tags",
+        "documentTagsPlaceHolder": "Select multiple Tags",
+        "document": "Document",
+        "tabPan": "Document",
+        "header": "Liste des documents",
+        "deleteDocumentConfirmationMessage": "Voulez vous vraiment supprimer document",
+        "deleteDocumentsConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "documentPartageUtilisateur":{
+        "document": "Document",
+        "documentPlaceHolder": "Select a Document",
+        "documentPlaceHolderFilter": "Search by Document",
+        "utilisateur": "Utilisateur",
+        "utilisateurPlaceHolder": "Select a Utilisateur",
+        "utilisateurPlaceHolderFilter": "Search by Utilisateur",
+        "dateShare": "Date share",
+        "dateShareMin": "Date share Min",
+        "dateShareMax": "Date share Max",
+        "accessShare": "Access share",
+        "accessSharePlaceHolder": "Select a Access share",
+        "accessSharePlaceHolderFilter": "Search by Access share",
+        "description": "Description",
+        "documentPartageUtilisateur": "Document partage utilisateur",
+        "tabPan": "Document partage utilisateur",
+        "header": "Liste des document partage utilisateurs",
+        "deleteDocumentPartageUtilisateurConfirmationMessage": "Voulez vous vraiment supprimer document partage utilisateur",
+        "deleteDocumentPartageUtilisateursConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "documentCategorie":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "description": "Description",
+        "documentCategorieIndexs": "Document categorie indexs",
+        "documentCategorieModels": "Document categorie models",
+        "documentCategorie": "Document categorie",
+        "tabPan": "Document categorie",
+        "header": "Liste des document categories",
+        "deleteDocumentCategorieConfirmationMessage": "Voulez vous vraiment supprimer document categorie",
+        "deleteDocumentCategoriesConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "documentCategorieModel":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "referenceGed": "Reference ged",
+        "description": "Description",
+        "documentCategorie": "Document categorie",
+        "documentCategoriePlaceHolder": "Select a Document categorie",
+        "documentCategoriePlaceHolderFilter": "Search by Document categorie",
+        "documentCategorieModel": "Document categorie model",
+        "tabPan": "Document categorie model",
+        "header": "Liste des document categorie models",
+        "deleteDocumentCategorieModelConfirmationMessage": "Voulez vous vraiment supprimer document categorie model",
+        "deleteDocumentCategorieModelsConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "documentTag":{
+        "document": "Document",
+        "documentPlaceHolder": "Select a Document",
+        "documentPlaceHolderFilter": "Search by Document",
+        "tag": "Tag",
+        "tagPlaceHolder": "Select a Tag",
+        "tagPlaceHolderFilter": "Search by Tag",
+        "documentTag": "Document tag",
+        "tabPan": "Document tag",
+        "header": "Liste des document tags",
+        "deleteDocumentTagConfirmationMessage": "Voulez vous vraiment supprimer document tag",
+        "deleteDocumentTagsConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "documentIndexElement":{
+        "indexElement": "Index element",
+        "indexElementPlaceHolder": "Select a Index element",
+        "indexElementPlaceHolderFilter": "Search by Index element",
+        "document": "Document",
+        "documentPlaceHolder": "Select a Document",
+        "documentPlaceHolderFilter": "Search by Document",
+        "value": "Value",
+        "description": "Description",
+        "documentIndexElement": "Document index element",
+        "tabPan": "Document index element",
+        "header": "Liste des document index elements",
+        "deleteDocumentIndexElementConfirmationMessage": "Voulez vous vraiment supprimer document index element",
+        "deleteDocumentIndexElementsConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "documentState":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "style": "Style",
+        "description": "Description",
+        "documentState": "Document state",
+        "tabPan": "Document state",
+        "header": "Liste des document states",
+        "deleteDocumentStateConfirmationMessage": "Voulez vous vraiment supprimer document state",
+        "deleteDocumentStatesConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "gender":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "description": "Description",
+        "gender": "Gender",
+        "tabPan": "Gender",
+        "header": "Liste des genders",
+        "deleteGenderConfirmationMessage": "Voulez vous vraiment supprimer gender",
+        "deleteGendersConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "groupeUtilisateur":{
+        "groupe": "Groupe",
+        "groupePlaceHolder": "Select a Groupe",
+        "groupePlaceHolderFilter": "Search by Groupe",
+        "utilisateur": "Utilisateur",
+        "utilisateurPlaceHolder": "Select a Utilisateur",
+        "utilisateurPlaceHolderFilter": "Search by Utilisateur",
+        "dateAjout": "Date ajout",
+        "dateAjoutMin": "Date ajout Min",
+        "dateAjoutMax": "Date ajout Max",
+        "etatUtilisateur": "Etat utilisateur",
+        "etatUtilisateurPlaceHolder": "Select a Etat utilisateur",
+        "etatUtilisateurPlaceHolderFilter": "Search by Etat utilisateur",
+        "roleUtilisateur": "Role utilisateur",
+        "roleUtilisateurPlaceHolder": "Select a Role utilisateur",
+        "roleUtilisateurPlaceHolderFilter": "Search by Role utilisateur",
+        "groupeUtilisateur": "Groupe utilisateur",
+        "tabPan": "Groupe utilisateur",
+        "header": "Liste des groupe utilisateurs",
+        "deleteGroupeUtilisateurConfirmationMessage": "Voulez vous vraiment supprimer groupe utilisateur",
+        "deleteGroupeUtilisateursConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "tag":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "description": "Description",
+        "tag": "Tag",
+        "tabPan": "Tag",
+        "header": "Liste des tags",
+        "deleteTagConfirmationMessage": "Voulez vous vraiment supprimer tag",
+        "deleteTagsConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "documentCategorieIndex":{
+        "indexElement": "Index element",
+        "indexElementPlaceHolder": "Select a Index element",
+        "indexElementPlaceHolderFilter": "Search by Index element",
+        "documentCategorie": "Document categorie",
+        "documentCategoriePlaceHolder": "Select a Document categorie",
+        "documentCategoriePlaceHolderFilter": "Search by Document categorie",
+        "documentCategorieIndexRule": "Document categorie index rule",
+        "documentCategorieIndexRulePlaceHolder": "Select a Document categorie index rule",
+        "documentCategorieIndexRulePlaceHolderFilter": "Search by Document categorie index rule",
+        "documentCategorieIndex": "Document categorie index",
+        "tabPan": "Document categorie index",
+        "header": "Liste des document categorie indexs",
+        "deleteDocumentCategorieIndexConfirmationMessage": "Voulez vous vraiment supprimer document categorie index",
+        "deleteDocumentCategorieIndexsConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "documentPartageGroupe":{
+        "document": "Document",
+        "documentPlaceHolder": "Select a Document",
+        "documentPlaceHolderFilter": "Search by Document",
+        "groupe": "Groupe",
+        "groupePlaceHolder": "Select a Groupe",
+        "groupePlaceHolderFilter": "Search by Groupe",
+        "dateShare": "Date share",
+        "dateShareMin": "Date share Min",
+        "dateShareMax": "Date share Max",
+        "accessShare": "Access share",
+        "accessSharePlaceHolder": "Select a Access share",
+        "accessSharePlaceHolderFilter": "Search by Access share",
+        "description": "Description",
+        "documentPartageGroupe": "Document partage groupe",
+        "tabPan": "Document partage groupe",
+        "header": "Liste des document partage groupes",
+        "deleteDocumentPartageGroupeConfirmationMessage": "Voulez vous vraiment supprimer document partage groupe",
+        "deleteDocumentPartageGroupesConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "entiteAdministrativeType":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "description": "Description",
+        "entiteAdministrativeType": "Entite administrative type",
+        "tabPan": "Entite administrative type",
+        "header": "Liste des entite administrative types",
+        "deleteEntiteAdministrativeTypeConfirmationMessage": "Voulez vous vraiment supprimer entite administrative type",
+        "deleteEntiteAdministrativeTypesConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "etatUtilisateur":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "description": "Description",
+        "etatUtilisateur": "Etat utilisateur",
+        "tabPan": "Etat utilisateur",
+        "header": "Liste des etat utilisateurs",
+        "deleteEtatUtilisateurConfirmationMessage": "Voulez vous vraiment supprimer etat utilisateur",
+        "deleteEtatUtilisateursConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "utilisateur":{
+        "email": "Email",
+        "telephone": "Telephone",
+        "nom": "Nom",
+        "prenom": "Prenom",
+        "dateNaissance": "Date naissance",
+        "dateNaissanceMin": "Date naissance Min",
+        "dateNaissanceMax": "Date naissance Max",
+        "gender": "Gender",
+        "genderPlaceHolder": "Select a Gender",
+        "genderPlaceHolderFilter": "Search by Gender",
+        "entiteAdministrative": "Entite administrative",
+        "entiteAdministrativePlaceHolder": "Select a Entite administrative",
+        "entiteAdministrativePlaceHolderFilter": "Search by Entite administrative",
+        "credentialsNonExpired": "Credentials non expired",
+        "enabled": "Enabled",
+        "accountNonExpired": "Account non expired",
+        "accountNonLocked": "Account non locked",
+        "passwordChanged": "Password changed",
+        "username": "Username",
+        "password": "Password",
+        "utilisateur": "Utilisateur",
+        "tabPan": "Utilisateur",
+        "header": "Liste des utilisateurs",
+        "deleteUtilisateurConfirmationMessage": "Voulez vous vraiment supprimer utilisateur",
+        "deleteUtilisateursConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "documentCategorieIndexRule":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "expresion": "Expresion",
+        "description": "Description",
+        "documentCategorieIndexRule": "Document categorie index rule",
+        "tabPan": "Document categorie index rule",
+        "header": "Liste des document categorie index rules",
+        "deleteDocumentCategorieIndexRuleConfirmationMessage": "Voulez vous vraiment supprimer document categorie index rule",
+        "deleteDocumentCategorieIndexRulesConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "indexElement":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "description": "Description",
+        "indexElement": "Index element",
+        "tabPan": "Index element",
+        "header": "Liste des index elements",
+        "deleteIndexElementConfirmationMessage": "Voulez vous vraiment supprimer index element",
+        "deleteIndexElementsConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "entiteAdministrative":{
+        "code": "Code",
+        "entiteAdministrativeParent": "Entite administrative parent",
+        "entiteAdministrativeParentPlaceHolder": "Select a Entite administrative parent",
+        "entiteAdministrativeParentPlaceHolderFilter": "Search by Entite administrative parent",
+        "referenceGed": "Reference ged",
+        "description": "Description",
+        "libelle": "Libelle",
+        "chef": "Chef",
+        "chefPlaceHolder": "Select a Chef",
+        "chefPlaceHolderFilter": "Search by Chef",
+        "entiteAdministrativeType": "Entite administrative type",
+        "entiteAdministrativeTypePlaceHolder": "Select a Entite administrative type",
+        "entiteAdministrativeTypePlaceHolderFilter": "Search by Entite administrative type",
+        "utilisateurs": "Utilisateurs",
+        "entiteAdministrative": "Entite administrative",
+        "tabPan": "Entite administrative",
+        "header": "Liste des entite administratives",
+        "deleteEntiteAdministrativeConfirmationMessage": "Voulez vous vraiment supprimer entite administrative",
+        "deleteEntiteAdministrativesConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "groupe":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "utilisateur": "Utilisateur",
+        "utilisateurPlaceHolder": "Select a Utilisateur",
+        "utilisateurPlaceHolderFilter": "Search by Utilisateur",
+        "groupeUtilisateurs": "Groupe utilisateurs",
+        "groupe": "Groupe",
+        "tabPan": "Groupe",
+        "header": "Liste des groupes",
+        "deleteGroupeConfirmationMessage": "Voulez vous vraiment supprimer groupe",
+        "deleteGroupesConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+"appName": "GED"
+}
+
+

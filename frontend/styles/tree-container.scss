@@ -1,0 +1,60 @@
+.tree-container {
+    min-width: 280px;
+    max-width: 300px;
+    min-height: 730px;
+    max-height: 820px;
+    margin-right: 10px;
+    border-radius: 15px;
+    background-color: #f6f8fa;
+    margin-bottom: 1rem;
+    overflow-y: auto;
+    border: 2px solid #3f51b5; /* Bordure bleue */
+   
+
+    &::-webkit-scrollbar {
+        width: 8px;
+       
+       
+    }
+
+    &::-webkit-scrollbar-track {
+        background: rgba(0,0,0,0);
+        margin-top: 7px;
+        margin-bottom: 7px;        
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #c7d8f4;
+        border-radius: 10px;
+        overflow: hidden;
+        height: auto;
+       
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: rgb(169, 197, 244);
+    }
+}
+
+.tree-container .p-treenode {
+    padding: 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.tree-container .p-treenode:hover {
+    background-color: #e3f2fd; /* Bleu clair survol */
+    color: #3f51b5; /* Texte bleu sur survol */
+}
+
+.tree-container .p-treenode .p-treenode-label {
+    color: #3f51b5; /* Texte bleu par défaut */
+}
+
+.tree-container .p-treenode-content .p-treenode-toggler {
+    color: #3f51b5; /* Couleur des togglers */
+}
+
+.tree-container .p-treenode-content .p-treenode-toggler:hover {
+    color: #1e88e5; /* Couleur des togglers sur survol */
+}

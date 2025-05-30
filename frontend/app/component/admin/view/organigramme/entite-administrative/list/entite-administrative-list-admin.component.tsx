@@ -1,0 +1,199 @@
+import { Button } from 'primereact/button';
+import { Column } from 'primereact/column';
+
+
+import useListHook from "app/component/zyhook/useListhook";
+import { Card } from 'primereact/card';
+import { DataTable } from 'primereact/datatable';
+import { ProgressSpinner } from 'primereact/progressspinner';
+
+import { Dialog } from 'primereact/dialog';
+import { Dropdown } from 'primereact/dropdown';
+import { InputText } from 'primereact/inputtext';
+import { Paginator } from 'primereact/paginator';
+import { Toast } from 'primereact/toast';
+import { Toolbar } from 'primereact/toolbar';
+import { useEffect, useState } from 'react';
+
+
+import { EntiteAdministrativeCriteria } from 'app/controller/criteria/EntiteAdministrativeCriteria.model';
+import { EntiteAdministrativeDto } from 'app/controller/model/EntiteAdministrative.model';
+import { EntiteAdministrativeAdminService } from 'app/controller/service/admin/EntiteAdministrativeAdminService.service';
+
+import { EntiteAdministrativeTypeDto } from 'app/controller/model/EntiteAdministrativeType.model';
+import { UtilisateurDto } from 'app/controller/model/Utilisateur.model';
+import { EntiteAdministrativeTypeAdminService } from 'app/controller/service/admin/EntiteAdministrativeTypeAdminService.service';
+import { UtilisateurAdminService } from 'app/controller/service/admin/UtilisateurAdminService.service';
+
+import { useTranslation } from 'react-i18next';
+
+import Create from '../create/entite-administrative-create-admin.component';
+import Edit from '../edit/entite-administrative-edit-admin.component';
+import View from '../view/entite-administrative-view-admin.component';
+import useEntiteAdministrativesStore from 'Stores/EntiteAdministrativesStore';
+import useUtilisateurStore from 'Stores/Users/UtilsateursStore';
+
+
+const List = () => {
+
+    const { t } = useTranslation();
+
+    const emptyItem = new EntiteAdministrativeDto();
+    const emptyCriteria = new EntiteAdministrativeCriteria();
+    const service = new EntiteAdministrativeAdminService();
+
+
+    const {
+        items,
+        deleteItemDialog,
+        item,
+        selectedItems,
+        setSelectedItems,
+        hideDeleteItemDialog,
+        globalFilter,
+        setGlobalFilter,
+        showCreateDialog,
+        setShowCreateDialog,
+        showEditDialog,
+        setShowEditDialog,
+        showViewDialog,
+        setShowViewDialog,
+        selectedItem,
+        setSelectedItem,
+        rows,
+        totalRecords,
+        criteria,
+        setCriteria,
+        first,
+        fetchItems,
+        toast,
+        dt,
+        findByCriteriaShow,
+        handleCancelClick,
+        deleteItemDialogFooter,
+        leftToolbarTemplate,
+        rightToolbarTemplate,
+        actionBodyTemplate,
+        handleValidateClick,
+        onPage,
+        add,
+        update,
+        deleteItemsDialog,
+        deleteItemsDialogFooter,
+        hideDeleteItemsDialog
+    } = useListHook<EntiteAdministrativeDto, EntiteAdministrativeCriteria>({ emptyItem, emptyCriteria, service, t })
+
+
+    const {entites: entiteAdministrativeParents} = useEntiteAdministrativesStore();
+    const {utilisateurs: chefs} = useUtilisateurStore();
+    const [entiteAdministrativeTypes, setEntiteAdministrativeTypes] = useState<EntiteAdministrativeTypeDto[]>([]);
+
+    
+
+    useEffect(() => {
+        fetchItems(criteria);
+    }, []);
+
+    useEffect(() => {
+        if (items.length !== 0) {
+            //console.log("entitites ", items)
+        }
+    }, [items])
+
+    const header = (
+        <div className="flex flex-column md:flex-row md:justify-content-between md:align-items-center">
+            <h5 className="m-0">{t("entiteAdministrative.header", { totalRecords: totalRecords })}</h5>
+            <span className="block mt-2 md:mt-0 p-input-icon-left"><i className="pi pi-search" />
+                <InputText id='search_entite' type="search" onInput={(e) => setGlobalFilter(e.currentTarget.value)}
+                    placeholder={t("search")} /> </span>
+        </div>
+    );
+
+    return (
+        <div className="grid crud-demo">
+            <div className="col-12">
+                <div className="card">
+                    <Toast ref={toast} />
+                    <Toolbar className="mb-4" left={leftToolbarTemplate} right={rightToolbarTemplate}></Toolbar>
+                    {findByCriteriaShow && (
+                        <Card className="mb-5">
+                            <div className="grid">
+                                <div className="flex flex-column col-3">
+                                    <label className="mb-1" htmlFor="1">{t("entiteAdministrative.code")}</label>
+                                    <InputText id="1" value={criteria.codeLike} onChange={(e) => setCriteria({ ...criteria, codeLike: e.target.value })} />
+                                </div>
+                                <div className="flex flex-column col-3">
+                                    <label className="mb-1" htmlFor="5">{t("entiteAdministrative.libelle")}</label>
+                                    <InputText id="5" value={criteria.libelleLike} onChange={(e) => setCriteria({ ...criteria, libelleLike: e.target.value })} />
+                                </div>
+                                <div className="flex flex-column col-6">
+                                    <label className="mb-1" htmlFor="4">{t("entiteAdministrative.description")}</label>
+                                    <InputText id="4" value={criteria.descriptionLike} onChange={(e) => setCriteria({ ...criteria, descriptionLike: e.target.value })} />
+                                </div>
+                                <div className="flex flex-column col-4">
+                                    <label className="mb-1" htmlFor="6">{t("entiteAdministrative.chefPlaceHolder")}</label>
+                                    <Dropdown id="6" value={criteria.chef} options={chefs} onChange={(e) => setCriteria({ ...criteria, chef: e.target.value })} optionLabel="nom" filter showClear />
+                                </div>
+                                <div className="flex flex-column col-4">
+                                    <label className="mb-1" htmlFor="7">{t("entiteAdministrative.entiteAdministrativeTypePlaceHolder")}</label>
+                                    <Dropdown id="7" value={criteria.entiteAdministrativeType} options={entiteAdministrativeTypes} onChange={(e) => setCriteria({ ...criteria, entiteAdministrativeType: e.target.value })} optionLabel="libelle" filter showClear />
+                                </div>
+                                <div className="flex flex-column col-4">
+                                    <label className="mb-1" htmlFor="2">{t("entiteAdministrative.entiteAdministrativeParentPlaceHolder")}</label>
+                                    <Dropdown id="2" value={criteria.entiteAdministrativeParent} options={entiteAdministrativeParents} onChange={(e) => setCriteria({ ...criteria, entiteAdministrativeParent: e.target.value })} optionLabel="libelle" filter showClear />
+                                </div>
+                            </div>
+                            <div style={{ marginTop: '1rem', display: 'flex', justifyContent: 'flex-end' }} >
+                                <Button raised label={t("validate")} icon="pi pi-sort-amount-down" className="p-button-info mr-2" onClick={handleValidateClick} />
+                                <Button raised label={t("reinitialiser")} className="p-button-secondary mr-2" icon="pi pi-times" onClick={handleCancelClick} />
+                            </div>
+                        </Card>
+                    )}
+                    <DataTable ref={dt} emptyMessage={<div className="flex justify-content-center"><ProgressSpinner /></div>} value={items} selection={selectedItems} onSelectionChange={(e) => setSelectedItems(e.value as EntiteAdministrativeDto[])} dataKey="id" className="datatable-responsive" globalFilter={globalFilter} header={header} responsiveLayout="scroll" >
+                        <Column selectionMode="multiple" headerStyle={{ width: '4rem' }}> </Column>
+                        <Column field="code" header={t("entiteAdministrative.code")} sortable></Column>
+                        <Column field="entiteAdministrativeParent.libelle" header={t("entiteAdministrative.entiteAdministrativeParent")} sortable ></Column>
+                        <Column field="libelle" header={t("entiteAdministrative.libelle")} sortable></Column>
+                        <Column field="chef.nom" header={t("entiteAdministrative.chef")} sortable body={(rowData) => {
+                            if (rowData?.chef?.nom) {
+                                return (
+                                    <div className="flex align-items-center gap-2">
+                                        <img alt="" src="/user-avatar.png" width="32" />
+                                        <span className='font-bold'>{rowData.chef.nom}</span>
+                                    </div>
+                                )
+                            }
+                        }}
+                        ></Column>
+                        <Column field="entiteAdministrativeType.libelle" header={t("entiteAdministrative.entiteAdministrativeType")} sortable ></Column>
+                        <Column field="archiveLawDuration" header={"Durée de la loiArchive"} sortable ></Column>
+                        <Column header={t("actions")} body={actionBodyTemplate}></Column>
+                        <Column field="referenceGed" header={t("entiteAdministrative.referenceGed")} sortable hidden></Column>
+                    </DataTable>
+                    <div className="p-d-flex p-ai-center p-jc-between">
+                        <Paginator onPageChange={onPage} first={first} rows={rows} totalRecords={totalRecords} />
+                    </div>
+                    {showCreateDialog && <Create visible={showCreateDialog} onClose={() => setShowCreateDialog(false)} add={add} showToast={toast} list={items} service={service} t={t} />}
+
+                    {showEditDialog && <Edit visible={showEditDialog} onClose={() => { setShowEditDialog(false); setSelectedItem(emptyItem); }} showToast={toast} selectedItem={selectedItem} update={update} list={items} service={service} t={t} />}
+
+                    {showViewDialog && <View visible={showViewDialog} onClose={() => { setShowViewDialog(false); setSelectedItem(emptyItem); }} selectedItem={selectedItem} t={t} />}
+                    <Dialog visible={deleteItemDialog} style={{ width: '450px' }} header={t("confirm")} modal footer={deleteItemDialogFooter} onHide={hideDeleteItemDialog}>
+                        <div className="flex align-items-center justify-content-center">
+                            <i className="pi pi-exclamation-triangle mr-3" style={{ fontSize: '2rem' }} />
+                            {item && (<span>{t("entiteAdministrative.deleteEntiteAdministrativeConfirmationMessage")}</span>)}
+                        </div>
+                    </Dialog>
+                    <Dialog visible={deleteItemsDialog} style={{ width: '450px' }} header="Confirm" modal footer={deleteItemsDialogFooter} onHide={hideDeleteItemsDialog} >
+                        <div className="flex align-items-center justify-content-center">
+                            <i className="pi pi-exclamation-triangle mr-3" style={{ fontSize: '2rem' }} />
+                            {item && <span>{t("entiteAdministrative.deleteEntiteAdministrativesConfirmationMessage")}</span>}
+                        </div>
+                    </Dialog>
+                </div>
+            </div>
+        </div >
+    );
+};
+export default List;
+

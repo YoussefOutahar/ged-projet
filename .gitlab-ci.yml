@@ -1,0 +1,192 @@
+stages:
+  - build_dev
+  - build_qua
+  - build
+  - deploy
+
+variables:
+  SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"
+  GIT_DEPTH: "0"
+
+backend-ms2:
+  stage: build_dev
+  script:
+    - cd backend-ms2
+    - mvn -f pom.xml clean install -U -DskipTests
+  except:
+    - dev
+    - master
+    - /^release\/.*/
+    
+frontend:
+  stage: build_dev
+  script:
+    - cd frontend 
+    - npm install --froce
+    - npm run build 
+  except:
+    - dev
+    - master
+    - /^release\/.*/
+
+ged-minio:
+  stage: build_dev
+  script:
+    - cd ged-minio  
+    - mvn -f pom.xml clean install -Dmaven.test.skip
+  except:
+    - dev
+    - master
+    - /^release\/.*/
+
+ocr:
+  stage: build_dev
+  script:
+    - cd ocr
+    - mvn -f pom.xml clean install -Dmaven.test.skip
+  except:
+    - dev
+    - master
+    - /^release\/.*/
+
+elastic:
+  stage: build_dev
+  script:
+    - cd elastic 
+    - mvn -f pom.xml install -Dmaven.test.skip
+  except:
+    - dev
+    - master
+    - /^release\/.*/
+
+backend-ms2_qua:
+  stage: build_qua
+  script:
+    - cd backend-ms2
+    - mvn -f pom.xml clean install -U -DskipTests
+    - |
+      mvn sonar:sonar \
+      -Dsonar.projectKey="Ged-projet_backend-ms2_$SONAR_PROJECT_KEY" \
+      -Dsonar.host.url=$SONAR_HOST_URL \
+      -Dsonar.sources=src/main/java  \
+      -Dsonar.token=$SONAR_PROJECTS_KEY
+  cache:
+    key: "${CI_JOB_NAME}"
+    paths:
+      - .sonar/cache
+  only:
+    - dev
+
+frontend_qua:
+  stage: build_qua
+  script:
+    - cd frontend 
+    - npm install --froce
+    - npm run build 
+    - |
+      /usr/local/bin/sonar-scanner-wrapper.sh \
+      -Dsonar.projectKey="Ged-projet_frontend_$SONAR_PROJECT_KEY" \
+      -Dsonar.host.url=$SONAR_HOST_URL \
+      -Dsonar.token=$SONAR_PROJECTS_KEY 
+  cache:
+    key: "${CI_JOB_NAME}"
+    paths:
+      - .sonar/cache
+  only:
+    - dev
+
+ged-minio_qua:
+  stage: build_qua
+  script:
+    - cd ged-minio  
+    - mvn -f pom.xml clean install -Dmaven.test.skip
+    - |
+      mvn sonar:sonar \
+      -Dsonar.projectKey="Ged-projet_ged-minio_$SONAR_PROJECT_KEY" \
+      -Dsonar.host.url=$SONAR_HOST_URL \
+      -Dsonar.sources=src/main/java  \
+      -Dsonar.token=$SONAR_PROJECTS_KEY
+  cache:
+    key: "${CI_JOB_NAME}"
+    paths:
+      - .sonar/cache
+  only:
+    - dev
+
+ocr_qua:
+  stage: build_qua
+  script:
+    - cd ocr 
+    - mvn clean install -U -Dmaven.test.skip
+    - |
+      mvn sonar:sonar \
+      -Dsonar.projectKey="Ged-projet_ocr_$SONAR_PROJECT_KEY" \
+      -Dsonar.host.url=$SONAR_HOST_URL \
+      -Dsonar.sources=src/main/java  \
+      -Dsonar.token=$SONAR_PROJECTS_KEY
+  cache:
+    key: "${CI_JOB_NAME}" 
+    paths: 
+      - .sonar/cache
+  only:
+    - dev
+
+elastic_qua:
+  stage: build_qua
+  script:
+    - cd elastic 
+    - mvn -f pom.xml install -Dmaven.test.skip
+    - |
+      mvn sonar:sonar \
+      -Dsonar.projectKey="Ged-projet_elastic_$SONAR_PROJECT_KEY" \
+      -Dsonar.host.url=$SONAR_HOST_URL \
+      -Dsonar.sources=src/main/java  \
+      -Dsonar.token=$SONAR_PROJECTS_KEY
+  cache:
+    key: "${CI_JOB_NAME}"
+    paths:
+      - .sonar/cache
+  only:
+    - dev
+
+build:
+  stage: build
+  script:
+    - echo "$DOCKER_HUB_TOKEN" | docker login 102.50.248.165:8085 --username "$DOCKER_USERNAME" --password-stdin
+    - docker-compose -f ./docker-compose.yml build
+    - DOCKER_IMAGE_TAG=$(echo "$CI_COMMIT_REF_NAME" | tr '/' '-')
+    - docker tag ged-projet_elastic-backend:latest 102.50.248.165:8085/ged-projet-elastic-backend:$DOCKER_IMAGE_TAG
+    - docker tag ged-projet_ged-frontend:latest 102.50.248.165:8085/ged-projet-ged-frontend:$DOCKER_IMAGE_TAG
+    - docker tag ged-projet_ocr-backend:latest 102.50.248.165:8085/ged-projet-ocr-backend:$DOCKER_IMAGE_TAG
+    - docker tag ged-projet_ged-backend:latest 102.50.248.165:8085/ged-projet-ged-backend:$DOCKER_IMAGE_TAG
+    - docker tag ged-projet_ged-minio-backend:latest 102.50.248.165:8085/ged-projet-ged-minio-backend:$DOCKER_IMAGE_TAG
+  only:
+    - master
+    - /^release\/.*/
+
+publish:
+  stage: deploy
+  script:
+    - DOCKER_IMAGE_TAG=$(echo "$CI_COMMIT_REF_NAME" | tr '/' '-')
+    - docker push 102.50.248.165:8085/ged-projet-elastic-backend:$DOCKER_IMAGE_TAG
+    - docker push 102.50.248.165:8085/ged-projet-ged-frontend:$DOCKER_IMAGE_TAG
+    - docker push 102.50.248.165:8085/ged-projet-ocr-backend:$DOCKER_IMAGE_TAG
+    - docker push 102.50.248.165:8085/ged-projet-ged-backend:$DOCKER_IMAGE_TAG
+    - docker push 102.50.248.165:8085/ged-projet-ged-minio-backend:$DOCKER_IMAGE_TAG
+  only:
+    - master
+    - /^release\/.*/
+
+clean:
+  stage: .post
+  script:
+    - docker logout
+    - DOCKER_IMAGE_TAG=$(echo "$CI_COMMIT_REF_NAME" | tr '/' '-')
+    - docker rmi 102.50.248.165:8085/ged-projet-elastic-backend:$DOCKER_IMAGE_TAG
+    - docker rmi 102.50.248.165:8085/ged-projet-ged-frontend:$DOCKER_IMAGE_TAG
+    - docker rmi 102.50.248.165:8085/ged-projet-ocr-backend:$DOCKER_IMAGE_TAG
+    - docker rmi 102.50.248.165:8085/ged-projet-ged-backend:$DOCKER_IMAGE_TAG
+    - docker rmi 102.50.248.165:8085/ged-projet-ged-minio-backend:$DOCKER_IMAGE_TAG
+  only:
+    - master
+    - /^release\/.*/

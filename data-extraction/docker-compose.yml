@@ -1,0 +1,28 @@
+services:
+  flask-app:
+    build: .
+    restart: always
+    ports:
+      - "5000:5000"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - .:/app
+      - C:\ocr_cache:/temp/ocr_cache
+    environment:
+        DB_USERNAME: root
+        DB_PASSWORD: 
+        DB_HOST: host.docker.internal
+        DB_PORT: 3307
+        DB_NAME: gedd
+        MAX_CACHE_SIZE: 5368709120  # 5GB in bytes
+        CACHE_DIR: /temp/ocr_cache
+        TESSERACT_CMD: /usr/bin/tesseract
+    develop:
+      watch:
+        - action: sync
+          path: .
+          target: ./app
+
+  # redis:
+  #   image: redis:6-alpine

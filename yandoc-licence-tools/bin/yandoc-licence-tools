@@ -1,0 +1,16 @@
+#!/bin/bash
+# yandoc-licence-tools
+
+# Determine script location
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+INSTALL_DIR="$(dirname "$SCRIPT_DIR")"
+
+# Check if pwsh (PowerShell) is installed
+if ! command -v pwsh &> /dev/null; then
+    echo "PowerShell (pwsh) is not installed. Please install PowerShell for Unix systems:"
+    echo "Visit: https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell"
+    exit 1
+fi
+
+# Execute the PowerShell script with all arguments
+pwsh -File "$INSTALL_DIR/lib/core.ps1" "$@"

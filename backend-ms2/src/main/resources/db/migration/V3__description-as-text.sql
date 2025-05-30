@@ -1,0 +1,16 @@
+ALTER TABLE access_share MODIFY COLUMN description TEXT;
+ALTER TABLE document MODIFY COLUMN description TEXT;
+ALTER TABLE document MODIFY COLUMN content TEXT;
+ALTER TABLE document_categorie MODIFY COLUMN description TEXT;
+ALTER TABLE document_categorie_index_rule MODIFY COLUMN description TEXT;
+ALTER TABLE document_categorie_model MODIFY COLUMN description TEXT;
+ALTER TABLE document_index_element MODIFY COLUMN description TEXT;
+ALTER TABLE document_partage_groupe MODIFY COLUMN description TEXT;
+ALTER TABLE document_partage_utilisateur MODIFY COLUMN description TEXT;
+ALTER TABLE document_state MODIFY COLUMN description TEXT;
+ALTER TABLE document_type MODIFY COLUMN description TEXT;
+ALTER TABLE entite_administrative MODIFY COLUMN description TEXT;
+ALTER TABLE etat_utilisateur MODIFY COLUMN description TEXT;
+ALTER TABLE gender MODIFY COLUMN description TEXT;
+ALTER TABLE index_element MODIFY COLUMN description TEXT;
+ALTER TABLE role_utilisateur MODIFY COLUMN description TEXT;

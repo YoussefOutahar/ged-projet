@@ -1,0 +1,188 @@
+version: "3.7"
+services:
+  # Local MySQL Database
+  mysql-db:
+    image: mysql:8.0
+    container_name: mysql-db
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: ged-demo
+      MYSQL_USER: yandoc
+      MYSQL_PASSWORD: yandoc@2024
+    volumes:
+      # Expose database files to your computer
+      - C:\Docker\MySQL:/var/lib/mysql
+      # Optional: Custom MySQL configuration
+      # - ./mysql-config:/etc/mysql/conf.d
+      # Auto-run SQL files on startup (put your .sql file here)
+      - ./sql-init:/docker-entrypoint-initdb.d
+    command: --default-authentication-plugin=mysql_native_password
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    restart: always
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: mysql-db
+      PMA_USER: yandoc
+      PMA_PASSWORD: yandoc@2024
+      MYSQL_ROOT_PASSWORD: rootpassword
+    depends_on:
+      - mysql-db
+
+  data-extraction:
+    build: data-extraction/
+    container_name: data-extraction-sante
+    restart: always
+    ports:
+      - "5000:5000"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./data-extraction:/app
+      - ./temp/ocr_cache:/temp/ocr_cache
+    environment:
+        DB_USERNAME: yandoc
+        DB_PASSWORD: yandoc@2024
+        DB_HOST: mysql-db
+        DB_PORT: 3306
+        DB_NAME: ged-demo
+        MAX_CACHE_SIZE: 5368709120  # 5GB in bytes
+        CACHE_DIR: /temp/ocr_cache
+        TESSERACT_CMD: /usr/bin/tesseract
+    depends_on:
+      - mysql-db
+
+  ged-minio-backend:
+    build: ./ged-minio/
+    container_name: ged-minio-backend
+    restart: always
+    ports:
+      - "8037:8037"
+    depends_on:
+      - minio-instance
+      - mysql-db
+    environment:
+      MYSQL_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/ged-demo?allowPublicKeyRetrieval=true&useSSL=false
+      MYSQL_DATASOURCE_USERNAME: yandoc
+      MYSQL_DATASOURCE_PASSWORD: yandoc@2024
+      JPA_SHOW_SQL: "true"
+      MINIO_ENDPOINT: http://minio-instance:9000
+      MINIO_ROOT_USER: minio-root
+      MINIO_ROOT_PASSWORD: minio-admin
+      CONF_DOMAIN: minio.yandoc.site/ged
+      GED_STORAGE_LOCATION: /GedStorage
+    volumes:
+      - /home/buntu/deploy/GedStorage:/GedStorage
+
+  minio-instance:
+    image: minio/minio:RELEASE.2022-06-07T00-33-41Z
+    container_name: minio-instance
+    restart: always
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: minio-root
+      MINIO_ROOT_PASSWORD: minio-admin
+      MINIO_MEMORY: 4g
+      MINIO_CONN_POOL_SIZE: 100
+      MINIO_LOG_LEVEL: error
+      MINIO_COMPRESS: 'true'
+      MINIO_BROWSER: 'true'
+    volumes:
+      - ./data/minio_data:/data
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+
+  ged-backend:
+    build: backend-ms2/
+    container_name: ged-backend
+    restart: always
+    ports:
+      - "8036:8036"
+    environment:
+      MYSQL_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/ged-demo?allowPublicKeyRetrieval=true&useSSL=false
+      MYSQL_DATASOURCE_USERNAME: yandoc
+      MYSQL_DATASOURCE_PASSWORD: yandoc@2024
+      JPA_SHOW_SQL: "true"
+      GED_MINIO_API_URL: http://102.50.248.165:8037
+      ELASTIC_API_URL: http://elastic-backend:8039/api/elastic-documents
+      OCR_API_URL: http://102.50.248.165:8038
+      FRONT_PAGES_URL: http://102.50.248.165:3000
+      DATA_EXTRACTION_API_URL: http://102.50.248.165:5000
+    volumes:
+      - ged-security-data:/app/data
+    depends_on:
+      - mysql-db
+  #      networks:
+  #        ged-minio-network:
+  #          ipv4_address: 172.19.0.5
+
+  ocr-backend:
+    build: ./ocr/
+    container_name: ocr-backend
+    restart: always
+    ports:
+      - "8038:8038"
+    environment:
+      MYSQL_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/ged-demo?allowPublicKeyRetrieval=true&useSSL=false
+      MYSQL_DATASOURCE_USERNAME: yandoc
+      MYSQL_DATASOURCE_PASSWORD: yandoc@2024
+      JPA_SHOW_SQL: "true"
+      OCR_PATH: /test_data
+      TESSDATA_PREFIX: /test_data/tessdata
+    volumes:
+      - ./data/ocr/test_data:/test_data
+    depends_on:
+      - mysql-db
+  #    networks:
+  #      ged-minio-network:
+  #        ipv4_address: 172.19.0.6
+
+  ged-frontend:
+    build: ./frontend/
+    container_name: ged-frontend
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - "./frontend/:/project"
+      #      networks:
+      #        ged-minio-network:
+      #          ipv4_address: 172.19.0.7
+
+      # vault:
+      #   image: vault:1.8.0
+      #   container_name: my-vault
+      #   ports:
+      #     - "8200:8200"
+      #   environment:
+      #     - VAULT_DEV_ROOT_TOKEN_ID=myroot
+      #   cap_add:
+      #     - IPC_LOCK
+
+      # elastic-backend:
+      #   build: ./elastic/
+      #   container_name: elastic-backend
+      #   restart: unless-stopped
+      #   environment:
+      #     MYSQL_DATASOURCE_URL: jdbc:mysql://102.50.248.165:3306/ged-prod?allowPublicKeyRetrieval=true&useSSL=false
+      #     MYSQL_DATASOURCE_USERNAME: yandoc
+      #     MYSQL_DATASOURCE_PASSWORD: yandoc@2024
+      #     ELASTIC_HOST: yandoc-ged.es.europe-west9.gcp.elastic-cloud.com
+      #     ELASTIC_PORT: 9243
+      #     ELASTIC_USERNAME: elastic
+      #     ELASTIC_PASSWORD: xpDLrCZRnV0HIE7ywxZeFvbd
+      #   ports:
+      #     - "8039:8039"
+
+volumes:
+  ged-security-data:
+    driver: local
+  ged-logs:
+    driver: local

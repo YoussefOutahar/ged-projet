@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<body>
+<div th:fragment="footer">
+
+    <tr>
+        <td class="footer-section" style=" padding-left: 20px !important; padding-right: 20px !important; color: #d4d4d4; background-repeat: no-repeat; width: 100%; box-shadow: 8px 7px 11px #999999; position: relative; ">
+            <table style="border-spacing: 0 !important; width: 100%;">
+                <tr>
+                    <td style="width: 100%;">
+                        <p style="text-align: center; padding-top: 15px; padding-bottom: 20px; font-size: 13px; cursor: pointer; margin: 0;">
+                            <a th:href="@{{path}(path=${templateserverurl})}" style="color: #ffffff !important; text-decoration: none; text-transform: lowercase;"
+                               target="_blank">WWW..COM</a>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 100%;">
+                        <p style="padding-left: 50%; margin: 0px; padding-top: 5px; color: #22c1d1; ">Follow Us On:</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table style="width: 100%;">
+
+                            <tr>
+                                <td style="padding-top: 0px; width: 30%;">
+                                    <a style="text-decoration: none;" th:href="@{${templateuserpanelurl} + '/#/user/subscription/' + ${useremail}}" target="_blank">
+                                        <span style="color: #22c1d1; text-decoration: none; border-bottom: 2px solid#22c1d1; cursor: pointer; text-transform: capitalize;">Unsubscribe</span>
+                                    </a>
+                                </td>
+                                <td style="width: 70%; padding-top: 0px; text-align: right; cursor: pointer;">
+                                    <a th:href="@{{path}(path=${templatetelegramchatlink})}" target="_blank" style="color: #22c1d1; text-decoration: none;">
+                                        <img th:src="@{{path}/bmg-assets/images/telegram.png(path=${templateserverurl})}" alt="" style="padding-left: 10px; height: 22px; width: 22px;">
+                                    </a>
+                                    <a th:href="@{{path}(path=${templatetelegramchannellink})}" target="_blank" style="color: #22c1d1; text-decoration: none;">
+                                        <img th:src="@{{path}/bmg-assets/images/telegram-channel.png(path=${templateserverurl})}" alt="" style="padding-left: 10px; height: 22px; width: 22px;">
+                                    </a>
+                                    <a th:href="@{{path}(path=${templatefblink})}" target="_blank" style="color: #22c1d1; text-decoration: none;">
+                                        <img th:src="@{{path}/bmg-assets/images/facebook.png(path=${templateserverurl})}" alt="" style="padding-left: 10px; height: 22px; width: 22px;">
+                                    </a>
+                                    <a th:href="@{{path}(path=${templatelinkedinlink})}" target="_blank" style="color: #22c1d1; text-decoration: none;">
+                                        <img th:src="@{{path}/bmg-assets/images/linkedin.png(path=${templateserverurl})}" alt="" style="padding-left: 10px; height: 22px; width: 22px;">
+                                    </a>
+                                    <a th:href="@{{path}(path=${templatetwitterlink})}" target="_blank" style="color: #22c1d1; text-decoration: none;">
+                                        <img th:src="@{{path}/bmg-assets/images/twitter.png(path=${templateserverurl})}" alt="" style="padding-left: 10px; height: 22px; width: 22px;">
+                                    </a>
+                                    <a th:href="@{{path}(path=${templateyoutubelink})}" target="_blank" style="color: #22c1d1; text-decoration: none;">
+                                        <img th:src="@{{path}/bmg-assets/images/youtube.png(path=${templateserverurl})}" alt="" style="padding-left: 10px; height: 22px; width: 22px;">
+                                    </a>
+                                    <a href="https://bitcointalk.org/index.php?topic=4456828" target="_blank" style="color: #22c1d1; text-decoration: none;">
+                                        <img th:src="@{{path}/bmg-assets/images/bitcoin-talkforum.png(path=${templateserverurl})}" alt="" style="padding-left: 10px; height: 22px; width: 22px;">
+                                    </a>
+                                    <a th:href="@{{path}(path=${templateredditlink})}" target="_blank" style="color: #22c1d1; text-decoration: none;">
+                                        <img th:src="@{{path}/bmg-assets/images/redditforum.png(path=${templateserverurl})}" alt="" style="padding-left: 10px; height: 22px; width: 22px;">
+                                    </a>
+
+
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td style="padding-top: 15px; padding-bottom: 15px; color: #999999; font-size: 13px;">
+                        <span style="color: #22c1d1;">Risk:</span> Please
+                        <span style="color: #22c1d1; cursor: pointer; text-decoration: underline;">
+                                <a th:href="@{{path}/bmg-assets/docs/disclaimer.pdf(path=${templateserverurl})}" target="_blank" style="color: #22c1d1;">Click</a>
+                            </span> Here For Risks & Disclaimers
+                    </td>
+                </tr>
+            </table>
+        </td>
+
+    </tr>
+
+    <tr>
+        <td style="padding-top: 10px; background: #ffffff;"></td>
+    </tr>
+    <tr>
+        <td style="background: #ffffff; width: 600px; color: #000000; text-align: center; padding-top: 5px;">
+            <span>@ Copyright 2018 </span>
+            <img th:src="@{{path}/bmg-assets/images/footer.png(path=${templateserverurl})}" width="155" alt="" style="vertical-align: middle;">
+        </td>
+    </tr>
+</div>
+</body>
+
+</html>
